@@ -25,8 +25,6 @@
     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   }, (error) => console.log(error));
 
-  document.querySelector("#mashedPotatoesImg").hidden= false
-
 
 
 // // Iteration 1 - using callbacks
@@ -68,8 +66,6 @@ obtainInstruction('steak', 0)
     // return obtainInstruction(`steak`, 8)
   })
 
-  document.querySelector("#steakImg").hidden= false
-
 
 //Iteration 3 using async/await
 //...
@@ -102,13 +98,35 @@ async function makeBroccoli() {
     console.log(error)
   }
 }
+
 makeBroccoli()
 
-document.querySelector("#broccoliImg").hidden= false
-
 // Bonus 1 - 
-
-
+document.querySelector("#mashedPotatoesImg").hidden= false
+document.querySelector("#steakImg").hidden= false
 document.querySelector("#brusselsSproutsImg").hidden= false
-
+document.querySelector("#broccoliImg").hidden= false
 // ...
+
+//Bonus 2
+Promise.all ([
+  obtainInstruction('brusselsSprouts', 0),
+  obtainInstruction('brusselsSprouts', 1),
+  obtainInstruction('brusselsSprouts', 2),
+  obtainInstruction('brusselsSprouts', 3),
+  obtainInstruction('brusselsSprouts', 4),
+  obtainInstruction('brusselsSprouts', 5),
+  obtainInstruction('brusselsSprouts', 6),
+  obtainInstruction('brusselsSprouts', 7),
+])
+.then((patata) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[0]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[1]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[2]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[3]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[4]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[5]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[6]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${patata[7]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>BrusselsSprouts are ready!</li>`
+})
